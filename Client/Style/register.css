@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    font-size: 0.5rem;
+    font-family: monospace;
+    //margin-left: 40%;
+
+}
+
+body {
+    background-color: rgb(228, 164, 28);
+}
+
+.div-container-input-login {
+    text-align: center;
+    display: block;
+    border-radius: 25px;
+    border: 1,5px solid black;
+    
+}
+
+
+.logo {
+    /*text-align: center;
+    display: block;*/
+    position: relative;
+    height: 50px;
+    width: auto;
+}
+
+
+.div-container-logo {
+    margin-top: 15%;
+    position:relative;
+    overflow:hidden;
+    text-align: center;
+    display: block;
+}
+

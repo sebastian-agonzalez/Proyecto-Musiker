@@ -1,0 +1,60 @@
+{
+    //////////////////////////////////////// Estructura de Objetos pertinentes al proyecto
+} 
+
+
+{
+    //////////// Posts
+
+
+
+    "idPost": "",
+    "idUser": "",
+    "fecha": "",
+    "hora": "",
+    "usuarioHandle": "",
+    "usuarioThumbnail": "",
+    "titulo": "",
+    "cuerpoTexto": "",
+    "cuerpoFoto": "",
+    "comentarios": ""
+}
+
+{
+    /////////// Perfiles
+
+
+
+    "idUser": "",
+    "mail": "",
+    "usuarioHandle": "",
+    "usuarioAvatar": "",
+    "sexo": "",
+    "edad": "",
+    "bio": "",
+    "URLlink": "",
+    "domicilio": {
+        "provincia": "",
+        "ciudad": "",
+        "localidad/barrio": "",
+        //revisar forma de estruturación
+    },
+    "disponibilidadHoria": {
+        //revisar forma de estruturación
+    },
+    "fecha de nacimiento": "",
+    "instrumentosTocados": {
+        "bajo": {
+            "nivel": "",
+            //revisar forma de estruturación
+        },
+        "guitarra": "",
+        "teclado": "",
+        "batería": "",
+        "otros": ""
+    },
+    
+
+
+    
+}
