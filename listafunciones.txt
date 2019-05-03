@@ -1,0 +1,64 @@
+/*
+* 
+*  Funciones a usar
+*
+*
+*/
+
+1 - doLogin() - envía datos user y pass para validar en el server
+
+2 - makeUserAccount() - construye y graba datos de un nuevo perfil 
+
+3 - loadFeedPosts() - carga en el feed del main los posts ya existentes (dummy)
+
+4 - loadUser() - carga la info del usuario en el main
+
+5 - makePost() - realiza post en el feed y lo graba en la lista de posts
+
+6 - searchPost() - realiza búsquedas de posteos según criterios
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+*
+* APIs
+*
+*
+*/
+
+1 - "/" - login 
+
+2 - "/home" - main
+
+3 - "/register" - registrar un usuario
+
+4 - "/users" - lista de usuarios 
+    "/users/:id"
+
+5 - "/posts" - lista de posts
+    "/posts/:id"
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+*
+* consulta sobre JSONS
+*
+*
+*/
+
+1 - cómo se formatea y graba una fecha o una hora en las prop de obj
+
+2 - formas de estructurar domicilio? (ingreso con dropdowns en input?)
+
+3 - disponibilidad horaria, cómo formatearla en las propiedades y para el input?
+
+4 - nivel de instrumentos tocados - como formatearlos en prop y en input
+
+5 - cómo adjuntar y grabar fotos a posts, avis de usuarios
+
+6 - propiedades con opciones binarias, cómo abordarlas?

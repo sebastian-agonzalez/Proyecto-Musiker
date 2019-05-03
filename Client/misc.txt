@@ -10,8 +10,9 @@
 
     "idPost": "",
     "idUser": "",
-    "fecha": "",
-    "hora": "",
+    "tipo": ""    // ofrecimiento/búsqueda
+    "fecha": "", // cómo se graba y formatea la fecha? por ejemplo desde un imput
+    "hora": "", // cómo se graba y formatea la hora? por ejemplo desde un imput
     "usuarioHandle": "",
     "usuarioThumbnail": "",
     "titulo": "",
@@ -33,6 +34,7 @@
     "edad": "",
     "bio": "",
     "URLlink": "",
+    "numero": "",
     "domicilio": {
         "provincia": "",
         "ciudad": "",
@@ -44,6 +46,7 @@
     },
     "fecha de nacimiento": "",
     "instrumentosTocados": {
+        "voz": "",
         "bajo": {
             "nivel": "",
             //revisar forma de estruturación
