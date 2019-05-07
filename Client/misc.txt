@@ -27,14 +27,17 @@
 
 
     "idUser": "",
+    "creado":
+    "nombre": "",
+    "apellido": "",
     "mail": "",
     "usuarioHandle": "",
     "usuarioAvatar": "",
     "sexo": "",
-    "edad": "",
+    "fecha de nacimiento": "",
     "bio": "",
     "URLlink": "",
-    "numero": "",
+    "numeroDeTel": "",
     "domicilio": {
         "provincia": "",
         "ciudad": "",
@@ -44,7 +47,6 @@
     "disponibilidadHoria": {
         //revisar forma de estruturación
     },
-    "fecha de nacimiento": "",
     "instrumentosTocados": {
         "voz": "",
         "bajo": {

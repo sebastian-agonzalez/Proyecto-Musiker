@@ -14,34 +14,44 @@
 <body>
     <header>
         <div class="div-container-logo">
-            <img class="logo" src="C:\Users\Sebastián\Desktop\comIT\proyecto Musiker\Sources\logo.png">
+            <img class="logo" src="Resources\logo.png">
         </div>
     </header>
-    <div class="container">
+    <div class="container" id="container">
+        <div class="personal-data" id="info-first-section" style="display:block">
+            <h1>Comencemos...</h1>
+            <label for="name">Tu nombre y apellido</label>
+            <input type="text" placeholder="nombre" id="name" required>
+            <input type="text" placeholder="apellido" id="surname" required>
+            <label for="email">Un correo electrónico</label>
+            <input type="text" placeholder="correo electrónico" id="email" required>
+            <label for="gender">Sexo</label>
+            <form class="radio gender-form" action="">
+                <input type="radio" name="gender" value="male">Masculino<br>
+                <input type="radio" name="gender" value="female">Femenino<br>
+                <input type="radio" name="gender" value="other">Sin Especificar
+            </form>
+            <form>
+                <label for="birth-date">Fecha de nacimiento</label>
+                <input type="date" id="birth-date">
+            </form>
+        </div>
 
-        <h1>Comencemos...</h1>
-        <form>
-            <div class="personal-data">
-                <h2>Tu nombre y apellido</h2>
-                <input type="text" placeholder="nombre" id="" required>
-                <input type="text" placeholder="apellido" id="" required>
-                <h2>Un correo electrónico</h2>
-                <input type="text" placeholder="correo electrónico" id="" required>
-                <h2>Sexo:</h2>
-                <form action="">
-                    <input type="radio" name="gender" value="male">Masculino<br>
-                    <input type="radio" name="gender" value="female">Femenino<br>
-                    <input type="radio" name="gender" value="other">Sin Especificar
-                </form>
-                <form>
-                    <h2>Fecha de nacimiento</h2>
-                    <input type="date" id="">
-                    <input type="submit" value="enviar" id="">
-                </form>
-            </div>
-            <div class="div-buttons" id="button"></div>
-        </form>
+        <div class="personal-data" id="info-second-section" style="display:none">
+            <h1>Ya falta poco...</h1>
+            <label for="user-handler">Elegí tu usuario</label>
+            <input type="text" placeholder="sólo letras y números" id="user-handler">
+            <label for="upload-pic">Subí tu avatar</label>
+            <input type="file" name="" id="avatar">
+
+        </div>
+        <div class="div-buttons" id="buttons">
+            <button onclick="goToSignup1rstSection();" id="previous" style="display:none">Volver</button>
+            <button onclick="goToSignup2ndSection()" id="next">Siguiente</button>
+            <button onclick="getAndSendInfo();" style="display:block" id="ok-button">Enviar</button>
+        </div>
     </div>
+
     <footer>
         <p></p>
     </footer>

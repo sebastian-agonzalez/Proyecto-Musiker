@@ -1,1 +1,28 @@
-[]
+[
+    {
+        "idPost": "1",
+        "idUser": "1",
+        "tipo": "búsqueda",
+        "fecha": "",
+        "hora": "",
+        "usuarioHandle": "@LuisSuarez89",
+        "usuarioThumbnail": "...............",
+        "titulo": "Busco cantante para banda de Jazz",
+        "cuerpoTexto": "hola! estoy buscando una cantante de jazz, pref. sexo femenino para proyecto remunerado",
+        "cuerpoFoto": "...............",
+        "comentarios": ".............."
+    },
+    {
+        "idPost": "2",
+        "idUser": "2",
+        "tipo": "ofrecimiento",
+        "fecha": "",
+        "hora": "",
+        "usuarioHandle": "@LulaSanchez",
+        "usuarioThumbnail": ".............",
+        "titulo": "me Ofrezco como guitarrista!",
+        "cuerpoTexto": "me encanta el punk y ando con muchas ganas de sumarme a un proyecto",
+        "cuerpoFoto": "............",
+        "comentarios": "..........."
+    }
+]

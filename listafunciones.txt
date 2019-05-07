@@ -1,6 +1,6 @@
 /*
 * 
-*  Funciones a usar
+*  FUNCIONES PRINCIPALES
 *
 *
 */
@@ -17,6 +17,17 @@
 
 6 - searchPost() - realiza búsquedas de posteos según criterios
 
+
+
+FUNCIONES SECUNDARIAS
+
+register.js
+
+1 - goToSignup1rstSection()
+
+2 - goToSignup2ndSection()
+
+3 - getAndSendInfo()
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
