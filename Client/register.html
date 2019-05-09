@@ -26,21 +26,24 @@
             <label for="email">Un correo electrónico</label>
             <input type="text" placeholder="correo electrónico" id="email" required>
             <label for="gender">Sexo</label>
-            <form class="radio gender-form" action="">
-                <input type="radio" name="gender" value="male">Masculino<br>
-                <input type="radio" name="gender" value="female">Femenino<br>
-                <input type="radio" name="gender" value="other">Sin Especificar
-            </form>
-            <form>
-                <label for="birth-date">Fecha de nacimiento</label>
-                <input type="date" id="birth-date">
-            </form>
+            <select class="gender-form" id="gender">
+                <option value="" disabled selected>Elegí</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Sin Especificar</option>
+            </select>
+            <label for="birth-date">Fecha de nacimiento</label>
+            <input type="date" id="birth-date">
+
         </div>
 
         <div class="personal-data" id="info-second-section" style="display:none">
             <h1>Ya falta poco...</h1>
             <label for="user-handler">Elegí tu usuario</label>
             <input type="text" placeholder="sólo letras y números" id="user-handler">
+            
+            <label for="user-pass">Elegí tu contraseña</label>
+            <input type="password" placeholder="sólo letras y números" id="user-pass">
             <label for="upload-pic">Subí tu avatar</label>
             <input type="file" name="" id="avatar">
 
@@ -48,7 +51,7 @@
         <div class="div-buttons" id="buttons">
             <button onclick="goToSignup1rstSection();" id="previous" style="display:none">Volver</button>
             <button onclick="goToSignup2ndSection()" id="next">Siguiente</button>
-            <button onclick="getAndSendInfo();" style="display:block" id="ok-button">Enviar</button>
+            <button onclick="getAndSendInfoToSignup();" style="display:block" id="ok-button">Enviar</button>
         </div>
     </div>
 

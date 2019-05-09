@@ -53,7 +53,7 @@ function goToSignup2ndSection() {
     */
 }
 
-function getAndSendInfo() {
+function getAndSendInfoToSignup() {
 
     //construyo objeto HttpRequest
     let xhr = new XMLHttpRequest();
@@ -62,11 +62,10 @@ function getAndSendInfo() {
         if (xhr.status === 200) {
             window.location.href = xhr.responseText;
         } else if (xhr.status === 403) {
-
-
+            //TO DO
         } else {
-
-        }
+            //TO DO
+        };
     }
     //defino el método y endpoint
     xhr.open("POST", "/dosignup");
@@ -76,12 +75,15 @@ function getAndSendInfo() {
         name: document.getElementById('name').value,
         surname: document.getElementById('surname').value,
         email: document.getElementById('email').value,
-        //gender: undefined // RESOLVER CÓMO
+        gender: document.getElementById('gender').value,
         birthDate: document.getElementById('birth-date').value,
         userHandler: document.getElementById('user-handler').value,
-        userAvatar: document.getElementById('avatar').value
+        userPassword: document.getElementById('user-pass').value
+        //userAvatar: document.getElementById('avatar').value
     }
+
     console.log(info);
+
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(info));
 }

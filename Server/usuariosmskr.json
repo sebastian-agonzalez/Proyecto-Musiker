@@ -1,0 +1,101 @@
+[
+    {
+        "idUser": "1",
+        "creado": "2019-05-09T00:55:06.797Z",
+        "user": "jorge1",
+        "password": "202020",
+        "nombre": "jorge",
+        "apellido": "suarez",
+        "mail": "jorges@gmail.com",
+        "usuarioAvatar": "",
+        "sexo": "masculino",
+        "fechaDeNacimiento": "1975-05-01",
+        "bio": "",
+        "URLlink": "",
+        "numeroDeTel": "",
+        "domicilio": {
+            "barrio": ""
+        },
+        "disponibilidadHoria": {
+            "lunes": "",
+            "martes": "",
+            "miercoles": "",
+            "jueves": "",
+            "viernes": ""
+        },
+        "instrumentosTocados": {
+            "voz": "",
+            "bajo": "",
+            "guitarra": "",
+            "teclado": "",
+            "batería": "",
+            "": ""
+        }
+    },
+    {
+        "idUser": "2",
+        "creado": "2019-05-09T01:07:44.358Z",
+        "user": "silvia54new",
+        "password": "papasfritas19",
+        "nombre": "Silvia",
+        "apellido": "Laurens",
+        "mail": "silviasilvia@gmail.com",
+        "usuarioAvatar": "",
+        "sexo": "femenino",
+        "fechaDeNacimiento": "1987-06-08",
+        "bio": "",
+        "URLlink": "",
+        "numeroDeTel": "",
+        "domicilio": {
+            "barrio": ""
+        },
+        "disponibilidadHoria": {
+            "lunes": "",
+            "martes": "",
+            "miercoles": "",
+            "jueves": "",
+            "viernes": ""
+        },
+        "instrumentosTocados": {
+            "voz": "",
+            "bajo": "",
+            "guitarra": "",
+            "teclado": "",
+            "batería": "",
+            "": ""
+        }
+    },
+    {
+        "idUser": "3",
+        "creado": "2019-05-09T01:11:43.578Z",
+        "user": "laura2019",
+        "password": "joaquin05",
+        "nombre": "Laura",
+        "apellido": "Gómez",
+        "mail": "lau1@gmail.com",
+        "usuarioAvatar": "",
+        "sexo": "femenino",
+        "fechaDeNacimiento": "1988-04-18",
+        "bio": "",
+        "URLlink": "",
+        "numeroDeTel": "",
+        "domicilio": {
+            "barrio": ""
+        },
+        "disponibilidadHoria": {
+            "lunes": "",
+            "martes": "",
+            "miercoles": "",
+            "jueves": "",
+            "viernes": ""
+        },
+        "instrumentosTocados": {
+            "voz": "",
+            "bajo": "",
+            "guitarra": "",
+            "teclado": "",
+            "batería": "",
+            "": ""
+        }
+    }
+]

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="Style/materialize.min.css" media="screen,projection" />
+<link rel="stylesheet" type="text/css" media="screen" href="Style\register2.css">
+<script src="Script\register.js"></script>
+<title>Registrate | Musiker</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="orange darken-1">
+                <div class="nav-wrapper">
+                    <a href="/home" class="brand-logo"></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col s12">
+                <div class=" s12 m6 l3 s12 m6 l3 div-container-logo">
+                    <img class="logo" src="Resources\logo.png">
+                    <h5>La música al encuentro.</h5>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container" id="container">
+            <div class="personal-data" id="info-first-section" style="display:block">
+                <h5>Comencemos...</h5>
+                <label for="name">Tu nombre y apellido</label>
+                <input type="text" placeholder="nombre" id="name" required>
+                <input type="text" placeholder="apellido" id="surname" required>
+                <label for="email">Un correo electrónico</label>
+                <input type="text" placeholder="correo electrónico" id="email" required>
+                <label for="gender">Sexo</label>
+                <form class="radio gender-form" action="">
+                    <input type="radio" name="gender" value="male">Masculino<br>
+                    <input type="radio" name="gender" value="female">Femenino<br>
+                    <input type="radio" name="gender" value="other">Sin Especificar
+                </form>
+                <form>
+                    <label for="birth-date">Fecha de nacimiento</label>
+                    <input type="date" id="birth-date">
+                </form>
+            </div>
+
+            <div class="personal-data" id="info-second-section" style="display:none">
+                <h5>Ya falta poco...</h5>
+                <label for="user-handler">Elegí tu usuario</label>
+                <input type="text" placeholder="sólo letras y números" id="user-handler">
+                <label for="upload-pic">Subí tu avatar</label>
+                <input type="file" name="" id="avatar">
+
+            </div>
+            <div class="div-buttons" id="buttons">
+                <button onclick="goToSignup1rstSection();" id="previous" style="display:none">Volver</button>
+                <button onclick="goToSignup2ndSection()" id="next">Siguiente</button>
+                <button onclick="getAndSendInfo();" style="display:block" id="ok-button">Enviar</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p></p>
+    </footer>
+</body>
+
+</html>

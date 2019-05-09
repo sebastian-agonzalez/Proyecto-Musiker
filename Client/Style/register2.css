@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    font-size: 0.5rem;
+    font-family: monospace;
+}
+
+body {
+    background-color: rgb(228, 164, 28);
+}
+
+.logo {
+
+    position: relative;
+    height: 150px;
+    width: auto;
+}
+
+
+.div-container-logo {
+    margin: 5%;
+    margin-bottom: 2%;
+    position:relative;
+    overflow:hidden;
+    text-align: center;
+    display: block;
+}
+
+.personal-data {
+    display: block;
+}
+
+label {
+    font-size: 1rem;
+}
+
+input, label {
+    display: block;
+    margin: 2%;
+}
+

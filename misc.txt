@@ -1,0 +1,69 @@
+{
+    //////////////////////////////////////// Estructura de Objetos pertinentes al proyecto
+} 
+
+
+{
+    //////////// Posts
+
+
+
+    "idPost": "",
+    "idUser": "",
+    "tipo": ""    // ofrecimiento/búsqueda
+    "fecha": "", // cómo se graba y formatea la fecha? por ejemplo desde un imput
+    "hora": "", // cómo se graba y formatea la hora? por ejemplo desde un imput
+    "usuarioHandle": "",
+    "usuarioThumbnail": "",
+    "titulo": "",
+    "cuerpoTexto": "",
+    "cuerpoFoto": "",
+    "comentarios": ""
+}
+
+{
+    /////////// Perfiles
+
+
+
+    "idUser": "",
+    "creado":
+    "nombre": "",
+    "apellido": "",
+    "mail": "",
+    "usuarioHandle": "",
+    "usuarioAvatar": "",
+    "sexo": "",
+    "fecha de nacimiento": "",
+    "bio": "",
+    "URLlink": "",
+    "numeroDeTel": "",
+    "domicilio": {
+        "provincia": "",
+        "ciudad": "",
+        "localidad/barrio": "",
+        //revisar forma de estruturación
+    },
+    "disponibilidadHoria": {
+        //revisar forma de estruturación
+    },
+    "instrumentosTocados": {
+        "voz": "",
+        "bajo": {
+            "nivel": "",
+            //revisar forma de estruturación
+        },
+        "guitarra": "",
+        "teclado": "",
+        "batería": "",
+        "otros": ""
+    },    
+}
+
+
+HORARIOS: 
+REF. MAÑ 1 TARDE 2 NOCHE 3
+
+NIVEL DE INSTRUMENTOS: 
+REF. NO TOCA 0 BASICO 1 INTERMEDIO 2 AVANZADO 3
+
