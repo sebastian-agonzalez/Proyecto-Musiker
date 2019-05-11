@@ -2,7 +2,13 @@ body {
     font-size: 0.9rem;
 }
 
-.container-logo {}
+select, label {
+    display: block;
+}
+
+.div-post-float {
+    display: block;
+}
 
 .logo {
     padding-left: 20%;

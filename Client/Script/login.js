@@ -1,14 +1,9 @@
-
-
 /**
  * construye y muestra botones para validar o pasar a la sección de registro
- *  
- * 
- * 
+ *   
  */
 
 const buildInputSectionButton = () => {
-
 
     //se obtiene el div a modificar
     let divButtonValidate = document.getElementById('buttonvalidate');
@@ -37,9 +32,7 @@ const buildInputSectionButton = () => {
 
 }
 
-
-/**
- * 
+/** 
  * Función que muestra la contraseña en el input, switch entre oculta y visible
  *  
  */
@@ -54,9 +47,13 @@ const showPassword = () => {
 
     //codigo que muestra u oculta dicho input
     if (auxElement.type === "password") {
+
         auxElement.type = 'text';
+
     } else {
+
         auxElement.type = "password";
+
     }
 }
 
@@ -72,17 +69,13 @@ function getInfoAndValidateUser() {
 
     xhr.onload = () => {
         if (xhr.status === 200) {
-            window.location.href = xhr.responseText
+            window.location.href = xhr.responseURL
         } else if (undefined) {
-
-
+            //TO DO
         } else {
-
+            //TO DO
         }
-    }
-
-
-
+    };
 
 
     xhr.open('POST', '/validateLogin');
@@ -91,8 +84,9 @@ function getInfoAndValidateUser() {
         user: document.getElementById('user').value,
         pass: document.getElementById('pass').value
     }
+
     console.log(info);
-   
+
     xhr.setRequestHeader('Content-type', 'application/json');
     xhr.send(JSON.stringify(info));
-}
+};

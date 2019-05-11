@@ -1,35 +1,21 @@
 module.exports.validateUser = validateUser;
 module.exports.formatUserObject = formatUserObject;
 
-
-/**
- * función que valida user y pass
- * 
- */
-function validateUser(user, pass) {
-    if (user === 'admin' && pass === 'admin') {
-        return true;
-    } else {
-        return false;
-    }
-
-}
+let userCounter = 7;
 
 
 /**
- * 
  * función que formatea el req.body del nuevo usuario en un objeto que encaje con el formate de nuestra DB
  * 
- * param: obj               (object)  
- * 
- *    
+ * @param {object} obj 
  */
 
 function formatUserObject(obj) {
+    
 
     let newObject =
     {
-        idUser: '1',
+        idUser: 0,
         creado: JSON.stringify(new Date()),
         user: obj.userHandler,
         password: obj.userPassword,

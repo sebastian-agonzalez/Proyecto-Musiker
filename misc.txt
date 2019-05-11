@@ -48,7 +48,7 @@
         //revisar forma de estruturación
     },
     "instrumentosTocados": {
-        "voz": "",
+        "canto": "",
         "bajo": {
             "nivel": "",
             //revisar forma de estruturación

@@ -53,6 +53,13 @@ function goToSignup2ndSection() {
     */
 }
 
+
+
+/**
+ * 
+ * función para obtener el valor de los campos ingresados y envíar al server para su registro
+ * 
+ */
 function getAndSendInfoToSignup() {
 
     //construyo objeto HttpRequest
@@ -83,7 +90,8 @@ function getAndSendInfoToSignup() {
     }
 
     console.log(info);
-
+    //encabezado
     xhr.setRequestHeader('Content-type', 'application/json');
+    //envío de la info
     xhr.send(JSON.stringify(info));
 }
