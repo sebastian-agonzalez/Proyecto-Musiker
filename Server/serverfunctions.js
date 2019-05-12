@@ -1,4 +1,4 @@
-module.exports.validateUser = validateUser;
+module.exports.formatPostObject = formatPostObject;
 module.exports.formatUserObject = formatUserObject;
 
 let userCounter = 7;
@@ -51,3 +51,29 @@ function formatUserObject(obj) {
     return newObject
 };
 
+
+
+
+/**
+ * función que formatea el nuevo objeto de post a nuestros requerimientos
+ * 
+ * @param {object} obj 
+ * @param {object} obj2
+ * 
+ * 
+ */
+function formatPostObject(obj, obj2) {
+
+    let newObject = {
+        idUser: '',
+        userHandle: obj2.userId,
+        idPost: '',
+        titulo: obj.title,
+        descripcion: obj.description,
+        disponibilidadHoraria: obj.timeAvailability,
+        instrumento: obj.instrument,
+        ciudad: obj.city
+    }
+
+    return newObject;
+}

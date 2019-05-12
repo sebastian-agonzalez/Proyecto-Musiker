@@ -1,4 +1,12 @@
+//eventlistener para cargar posts desde la database cuando hay un GET al home
+
+
+
+
+
 /**
+ * 
+ * función que toma info ingresada para guardar un nuevo post en la DB
  * 
  */
 
@@ -8,14 +16,14 @@ function getInfoToDoNewPost() {
 
     xhr.onload = () => {
         if (xhr.status === 200) {
-            window.location.href = //xhr.responseURL responseText
+            window.location.href = xhr.responseURL
         } else if (undefined) {
             //TO DO
         } else {
             //TO DO
         }
     };
-}
+
 
 let info = {
     title: document.getElementById('title').value,
@@ -23,14 +31,16 @@ let info = {
     //image: 
     timeAvailability: document.getElementById('time-availability').value,
     instrument: document.getElementById('played-instrument').value,
-    city: document.getElementById('city')
+    city: document.getElementById('city').value
 }
 
-xhr.open('POST', '/newPost');
+xhr.open('POST', '/newPost'); 
 
 console.log(info);
 
 xhr.setRequestHeader('Content-type', 'application/json');
 xhr.send(JSON.stringify(info));
 
-}
+};
+
+

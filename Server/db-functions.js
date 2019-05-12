@@ -1,5 +1,7 @@
 module.exports.addNewUserToDatabase = addNewUserToDatabase;
 module.exports.validateUserAndPassAtDatabase = validateUserAndPassAtDatabase;
+module.exports.addNewPostToDatabase = addNewPostToDatabase;
+module.exports.getPost = getPost;
 
 //pido librería mongodb
 const mongodb = require('mongodb');
@@ -95,3 +97,80 @@ function validateUserAndPassAtDatabase(user, pass, cbOK, cbError) {
         };
     });
 };
+
+
+
+
+/**
+ * 
+ * @param {object} data 
+ * @param {func} cbOK 
+ * @param {func} cbError 
+ */
+
+function addNewPostToDatabase(data, cbOK, cbError) {
+
+    MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
+        //error de conexión
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+
+        } else {
+            //referencia a la base
+            const db = client.db(dbName);
+            //referencia a la colección
+            const collection = db.collection('FeedPosts');
+
+            //inserto nuevo usuario en el registro
+            collection.insertOne(data, (err, result) => {
+
+                if (err) {
+                    //invoco error en caso 
+                    cbError(err);
+
+                } else {
+                    //invoco callback de exito si salió todo bien
+                    cbOK();
+
+                }
+            });
+        }
+    });
+};
+
+
+/**
+ * función para consultar los posts en la DB
+ * 
+ * @param {function} cbOK 
+ * @param {function} cbError 
+ */
+function getPost(cbOK, cbError) {
+
+
+
+    MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
+
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+
+            const db = client.db(dbName);
+
+            const collection = db.collection("FeedPosts");
+
+            collection.find().toArray((err, list) => {
+                if (err) {
+                    cbError("Error al consultar lista de posts. " + err);
+                } else {
+                    list = list.reverse();
+                    cbOK(list);
+                }
+            });
+        }
+
+        client.close();
+    });
+}

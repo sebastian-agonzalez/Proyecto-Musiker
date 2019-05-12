@@ -68,13 +68,32 @@ app.get('/login', (req, res) => {
 //GET para entrega del home
 app.get('/home', (req, res) => {
 
+    console.log(req.session.userId);
+
+
+
 
     if (req.session.userId !== undefined) {
 
+        dbFunc.getPost(
+            postsList => {
+                res.render('home', {
+                    username: req.session.userId,
+                    posts: postsList
+                });
+            },
+            errorMessage => {
+                res.render('error', {
+                    errorMessage: errorMessage
+                });
+            }
+        );
 
-        res.render('home', {
-            username: req.session.userId,
-        });
+        /*
+         res.render('home', {
+         username: req.session.userId,
+         });
+         */
 
     } else {
 
@@ -203,6 +222,69 @@ app.post('/validateLogin', (req, res) => {
 });
 
 
+
+//
+app.post('/newPost', (req, res) => {
+
+    console.log(req.session.userId);
+
+    currentDate = new Date();
+    console.log('test 2: ', currentDate);
+
+    if (req.session.userId !== undefined) {
+
+        //chequeo si hay alguna propiedad que sea indefinida o un string vacío
+        // var. auxiliar para guardar propiedades del objeto
+        let auxCheck = Object.values(req.body);
+        console.log('test 3: ', auxCheck);
+        //var. auxiliar para guardar resultado del chequeo de strings vacíos
+        let auxCheckResult1 = auxCheck.find(item => item === "");
+
+        //var. auxiliar para guardar resultados de chequeo de propiedades undefined
+        let auxCheckResult2;
+
+        for (i = 0; i < auxCheck.length; i++) {
+            if (auxCheck[i] === undefined) {
+                auxCheckResult2 = true;
+                return;
+            } else {
+                auxCheckResult2 = false;
+            }
+        };
+        console.log('test 4: ' + auxCheckResult1, auxCheckResult2);
+
+
+
+        if (auxCheckResult1 != "" && !auxCheckResult2) {
+
+            //formateo el objeto recibido con la estructura de nuestra database
+            let newObjectPost = serverFunc.formatPostObject(req.body, req.session);
+            console.log('Test 5: ', newObjectPost);
+
+            //agrego el objeto de Post a la DB
+            dbFunc.addNewPostToDatabase(newObjectPost,
+                //si está todo ok redireccionar a loguearse
+                () => {
+
+                    res.redirect('/home');
+                    console.log('test 6: registro de post OK');
+
+                },
+                //mje de error
+                (errmsg) => {
+
+                    console.log(errmsg);
+
+                }
+            );
+
+            //} else {
+            //    res.sendStatus(403);
+        };
+    } else {
+        res.redirect('/');
+    }
+});
 
 
 

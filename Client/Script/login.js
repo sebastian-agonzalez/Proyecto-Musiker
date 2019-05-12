@@ -69,7 +69,7 @@ function getInfoAndValidateUser() {
 
     xhr.onload = () => {
         if (xhr.status === 200) {
-            window.location.href = xhr.responseURL
+            window.location.href = xhr.responseText
         } else if (undefined) {
             //TO DO
         } else {
