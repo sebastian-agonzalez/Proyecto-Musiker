@@ -51,3 +51,8 @@ main {
 #search-bar {
     border-radius: 10px;
 }
+
+#post-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

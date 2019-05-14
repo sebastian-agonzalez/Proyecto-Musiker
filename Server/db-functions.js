@@ -2,6 +2,7 @@ module.exports.addNewUserToDatabase = addNewUserToDatabase;
 module.exports.validateUserAndPassAtDatabase = validateUserAndPassAtDatabase;
 module.exports.addNewPostToDatabase = addNewPostToDatabase;
 module.exports.getPost = getPost;
+module.exports.searchKeywordAtDatabase = searchKeywordAtDatabase;
 
 //pido librería mongodb
 const mongodb = require('mongodb');
@@ -117,24 +118,27 @@ function addNewPostToDatabase(data, cbOK, cbError) {
             cbError("No se pudo conectar a la DB. " + err);
 
         } else {
+
+            console.log('conectó database post')
             //referencia a la base
             const db = client.db(dbName);
             //referencia a la colección
             const collection = db.collection('FeedPosts');
 
-            //inserto nuevo usuario en el registro
-            collection.insertOne(data, (err, result) => {
+            
+                //inserto nuevo usuario en el registro
+                collection.insertOne(data, (err, result) => {
 
-                if (err) {
-                    //invoco error en caso 
-                    cbError(err);
-
-                } else {
-                    //invoco callback de exito si salió todo bien
-                    cbOK();
-
-                }
-            });
+                    if (err) {
+                        //invoco error en caso 
+                        cbError(err);
+                        console.log('ruta error')
+                    } else {
+                        //invoco callback de exito si salió todo bien
+                        cbOK();
+                        console.log('ruta ok')
+                    }
+                });
         }
     });
 };
@@ -162,6 +166,62 @@ function getPost(cbOK, cbError) {
             const collection = db.collection("FeedPosts");
 
             collection.find().toArray((err, list) => {
+                if (err) {
+                    cbError("Error al consultar lista de posts. " + err);
+                } else {
+                    list = list.reverse();
+                    cbOK(list);
+                }
+            });
+        }
+
+        client.close();
+    });
+}
+
+
+
+
+
+
+/**
+ * 
+ * función que  busca en DB los posts que contengan alguna keyword ingresada en el buscador
+ * 
+ * @param {} data 
+ * @param {*} cbOK 
+ * @param {*} cbError 
+ */
+function searchKeywordAtDatabase(data, cbOK, cbError) {
+
+
+
+    MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
+
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+
+            const db = client.db(dbName);
+
+            const collection = db.collection("FeedPosts");
+
+            collection.find({
+                $or: [
+
+                    { titulo: new RegExp(data, "i") },
+
+                    { descripcion: new RegExp(data, "i") },
+
+                    { disponibilidadHoraria: new RegExp(data, "i") },
+
+                    { instrumento: new RegExp(data, "i") },
+
+                    { ciudad: new RegExp(data, "i") }
+
+                ]
+            }).toArray((err, list) => {
                 if (err) {
                     cbError("Error al consultar lista de posts. " + err);
                 } else {

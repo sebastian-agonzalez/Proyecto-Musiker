@@ -1,18 +1,46 @@
 body {
-    background-color: rgb(228, 164, 28);
+    background-color: #f3c634;
     font-size: 0.9rem;
-    font-family: monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.container-logo {}
+
 
 .logo {
-    height: 150px;
+    height: 180px;
     width: auto;
 }
 
-.container-input-login {
-  
+.contenido-main {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.field-name, .field-password {}
+button {
+    background-color: lightgray
+}
+
+.div-buttons-register {
+    transform: translateY(50px)
+}
+
+input {
+    height: 35px;
+    width: auto;
+    border-radius: 5px
+}
+
+button {
+    border-radius: 5px
+}
+
+.main-main {
+    background-color: rgb(238, 212, 64);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.nav {
+    background-color: #fb8c00;
+    min-height: 50px
+}

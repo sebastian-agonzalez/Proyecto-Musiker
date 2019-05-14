@@ -65,27 +65,56 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../Client/login.html'));
 });
 
+//GET entrega de error de registro
+app.get('/error', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Client/error.html'))
+});
+//GET entrega del registro
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Client/register.html'));
+});
+
+//get prueba handle
+app.get('/pruebahome', (req, res) => {
+    res.render('home', {
+        username: 'Lalo'
+    })
+
+});
+
+//GET para desloguearse
+app.get('/logout', (req, res) => {
+
+    //destruyo la sesión y redirijo al login
+    req.session.destroy();
+    res.redirect('/');
+});
+
+
+
 //GET para entrega del home
 app.get('/home', (req, res) => {
 
     console.log(req.session.userId);
 
-
-
-
     if (req.session.userId !== undefined) {
 
         dbFunc.getPost(
+
             postsList => {
                 res.render('home', {
                     username: req.session.userId,
                     posts: postsList
                 });
+
             },
+
             errorMessage => {
+
                 res.render('error', {
                     errorMessage: errorMessage
                 });
+
             }
         );
 
@@ -103,32 +132,8 @@ app.get('/home', (req, res) => {
 
 });
 
-//GET entrega de error de registro
-app.get('/error', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Client/error.html'))
-});
-//GET entrega del registro
-app.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Client/register.html'));
-});
 
 
-//get prueba handle
-app.get('/pruebahome', (req, res) => {
-    res.render('home', {
-        username: 'Lalo'
-    })
-
-});
-
-
-//GET para desloguearse
-app.get('/logout', (req, res) => {
-
-    //destruyo la sesión y redirijo al login
-    req.session.destroy();
-    res.redirect('/');
-});
 
 
 
@@ -185,7 +190,9 @@ app.post('/dosignup', (req, res) => {
         );
 
     } else {
-        res.sendStatus(403);
+        res.send('/error')
+        //res.sendStatus(403);
+        
     };
 });
 
@@ -218,6 +225,8 @@ app.post('/validateLogin', (req, res) => {
                 //mostrá el error y listo. El location.href hacelo cuando el retorno sea 200.
 
             });
+    } else {
+        res.send('/error');
     }
 });
 
@@ -287,6 +296,43 @@ app.post('/newPost', (req, res) => {
 });
 
 
+//GET Search - búsqueda de publicaciones
+app.get('/search', (req, res) => {
+    console.log('pasó por la api');
+    console.log(req.query);
+    console.log(req.query.keywords);
+
+
+    let keywordsString = req.query.keywords;
+
+    //let keywordsArr = keywordsString.split(/(\s+)/).filter(e => e.trim().length > 0);
+    console.log(keywordsString);
+
+    if (req.session.userId !== undefined) {
+
+        dbFunc.searchKeywordAtDatabase(keywordsString,
+
+            resultsList => {
+                res.render('searchresults', {
+                    username: req.session.userId,
+                    posts: resultsList
+                })
+            },
+            errorMessage => {
+
+                res.render('error', {
+                    errorMessage: errorMessage
+                });
+
+            }
+        );
+
+    } else {
+
+        res.redirect("/");
+
+    }
+});
 
 
 

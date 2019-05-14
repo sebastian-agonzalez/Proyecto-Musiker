@@ -2,29 +2,26 @@
     box-sizing: border-box;
 }
 .container {
-    font-size: 0.5rem;
-    font-family: monospace;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
-    background-color: rgb(228, 164, 28);
+    background-color: #f3c634;
 }
 
 .logo {
-    /*text-align: center;
-    display: block;*/
-    position: relative;
-    height: 50px;
+    height: 180px;
     width: auto;
 }
 
-
 .div-container-logo {
-    margin-top: 15%;
+    
     position:relative;
     overflow:hidden;
     text-align: center;
     display: block;
+    transform: translateX(-48px)
 }
 
 .personal-data {
@@ -40,3 +37,47 @@ input, label {
     margin: 2%;
 }
 
+#main-body {
+    transform: translateY(270px);
+    
+}
+
+.contenido-main {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+label {
+    /*margin-top: 30px;*/
+    margin-bottom: 15px;
+
+}
+
+input, select {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    height: 30px;
+}
+
+label {
+    margin-left: 50px;
+}
+
+#next, #previous {
+    margin: 30px
+}
+
+.nav {
+    background-color: #fb8c00;
+    min-height: 50px
+}
+
+#ok-button {
+    margin-top: 40px;
+    margin-bottom: 70px;
+}

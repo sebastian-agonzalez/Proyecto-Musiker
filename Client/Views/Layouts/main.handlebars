@@ -41,21 +41,23 @@
                     <a href="/home" class="brand-logo"> <img class="logo" src="Resources/logo.png"></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li>
-                            <form>
+                            <form action="/search">
                                 <div class="input-field  orange darken-2">
-                                    <input id="search" type="search" required>
+                                    <input id="search" type="search" name="keywords" required>
                                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                                     <i class="material-icons">close</i>
-                                </div>
+                                    <input style="display:none" type="submit" value="Submit">
                             </form>
-                        </li>
-                        <li><span class="header username" style="font-size: 14px">Hola, @{{username}}</span></li>
-                        <li><a href=""><i class="icons fas fa-user-circle fa-2x"></i></a></li>
-                        <li><a class="header logout" href="/logout">Salir</a></li>
-                        <li><a href=""><i class="icons fas fa-cog fa-2x"></i></a></li>
-                    </ul>
                 </div>
-            </nav>
+                </form>
+                </li>
+                <li><span class="header username" style="font-size: 14px">Hola, @{{username}}</span></li>
+                <li><a href=""><i class="icons fas fa-user-circle fa-2x"></i></a></li>
+                <li><a class="header logout" href="/logout">Salir</a></li>
+                <li><a href=""><i class="icons fas fa-cog fa-2x"></i></a></li>
+                </ul>
+        </div>
+        </nav>
         </div>
     </header>
 
@@ -72,12 +74,13 @@
                     </div>
                 </div>
                 <div class="col s12 m4 l2">
-                    <p>s12 m4</p>
+                    <p style="display:none">s12 m4</p>
 
                 </div>
                 <div class="col s12 m4 l8 yellow lighten-5">
                     <div id="div-post-container">
-                        <div oncli-ck="window.location.href='www.facebook.com'" class="white" id="post-div">
+                        <div style="display:none" oncli-ck="window.location.href='www.facebook.com'" class="white"
+                            id="post-div">
                             <form id="to-post" action="">
                                 <input type="text" placeholder="Realiza un posteo..." id="post-text">
                                 <button class="col s2 offset-s10" id="post-button">Postear</button>
@@ -89,6 +92,7 @@
                         </div>
                         <div class="divider"></div>
                     </div>
+                    <h5>Realizá una búsqueda...</h5>
                     <div class="div-post-float" id="post-float-input">
                         <input type="text" placeholder="Título" id="title">
                         <input type="text" placeholder="Descripción" id="description">
@@ -164,15 +168,16 @@
                         </select>
                         <button onclick="getInfoToDoNewPost();" class="col s2 offset-s10"
                             id="post-button">Postear</button>
+                        <div class="divider"></div>
                     </div>
-                    <p>s12 m4</p>
-                    <p>s12 m4</p>
-                    <p>s12 m4</p>
-                    <p>s12 m4</p>
+                    <div class="divider"></div>
+                    <p style="display:none">s12 m4</p>
+
+                    <div class="divider"></div>
                     {{{body}}}
                 </div>
                 <div class="col s12 m4 l2">
-                    <p>s12 m4</p>
+                    <p style="display:none">s12 m4</p>
                 </div>
             </div>
         </div>
@@ -184,15 +189,14 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+                    <h5 class="white-text"></h5>
+                    <p class="grey-text text-lighten-4">Conectar con miles de músicos nunca fue tan fácil.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text"></h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!"></a></li>
                         <!--<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>-->
                     </ul>
@@ -201,8 +205,8 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2019 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                © 2019 Musiker.
+                <a class="grey-text text-lighten-4 right" href="#!">Acerca de</a>
             </div>
         </div>
 

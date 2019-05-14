@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" media="screen" href="Style\login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="Style\login.css">
     <script src="Script\login.js"></script>
     <title>Accedé | Musiker</title>
 </head>
@@ -15,32 +17,59 @@
 
 
 
-    <div class="container-input-login">
-        <div class="div-container-logo">
-            <img class="logo" src="Resources\logo.png">
-        </div>
-        <h1>Ingresa</h1>
-        
-            <div class="field-name">
-                <i class="fas fa-at"></i>
-                <input type="text" placeholder="usuario" id="user" required="">
-            </div>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link disabled" href="" tabindex="-1" aria-disabled="true">Registrate y encontrate con otros
+                músicos - Musiker. - © 2019</a>
+        </li>
+    </ul>
 
 
-            <div class="field-password">
-                <i class="fas fa-key"></i>
-                <input type="password" placeholder="contraseña" id="pass" required="">
-                <input type="checkbox" onclick="showPassword()">Mostrar Contraseña
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                
             </div>
-            <div class="div-buttons" id="buttonvalidate">
-                <button onclick="getInfoAndValidateUser();" class="button-login">Acceder</button>
+            <div class="col-sm">
+                <div class="container-input-login">
+                    <div class="div-container-logo ">
+                        <img class="logo" src="Resources\logo2.png">
+                    </div>
+                    <div class="contenido-main main-main">
+                        <h3>Ingresar</h3>
+
+                        <div class="field-name contenido-main">
+                            <i class="fas fa-at"></i>
+                            <input type="text" placeholder="usuario" id="user" required="">
+                        </div>
+
+                        <div class="field-password contenido-main">
+                            <i class="fas fa-key"></i>
+                            <input type="password" placeholder="contraseña" id="pass" required="">
+                            <input style="display:block" type="checkbox" onclick="showPassword()">Mostrar Contraseña
+                        </div>
+
+                        <div class="div-buttons text-right" id="buttonvalidate">
+                            <button onclick="getInfoAndValidateUser();" class="button-login">Acceder</button>
+                        </div>
+
+
+                    </div>
+                    <div class="div-buttons-register" id="buttonsignup">
+                        <button onclick="window.location='/signup';" class="button-register">No sos usuario?
+                            Registrate</button>
+                    </div>
+                </div>
+
             </div>
-        
-        <div class="div-buttons-register" id="buttonsignup">
-            <button onclick="window.location='/signup';" class="button-register">No sos usuario?
-                Registrate</button>
+            <div class="col-sm">
+                
+            </div>
         </div>
     </div>
+
+
+
 </body>
 
 </html>
