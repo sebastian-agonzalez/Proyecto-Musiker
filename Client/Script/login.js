@@ -49,11 +49,9 @@ const showPassword = () => {
     if (auxElement.type === "password") {
 
         auxElement.type = 'text';
-
     } else {
 
         auxElement.type = "password";
-
     }
 }
 
@@ -63,13 +61,17 @@ const showPassword = () => {
  */
 
 function getInfoAndValidateUser() {
-    console.log('clicking works')
 
+    //objeto request
     let xhr = new XMLHttpRequest();
 
+    //procesa respuestas
     xhr.onload = () => {
+
         if (xhr.status === 200) {
+
             window.location.href = xhr.responseText
+
         } else if (undefined) {
             //TO DO
         } else {
@@ -77,16 +79,17 @@ function getInfoAndValidateUser() {
         }
     };
 
-
+    //abro endpoint de comuniacion con el server
     xhr.open('POST', '/validateLogin');
-
+    //objeto con los datos ingresados por usuario
     let info = {
         user: document.getElementById('user').value,
         pass: document.getElementById('pass').value
     }
 
     console.log(info);
-
+    //config de header
     xhr.setRequestHeader('Content-type', 'application/json');
+    //envio objeto
     xhr.send(JSON.stringify(info));
 };

@@ -18,11 +18,13 @@ const dbName = 'Musiker';
 /**
  * función que agrega nuevos usuarios a la base de datos
  * 
- * @param {objeto} data 
- * @param {function} cbOK 
- * @param {function} cbError 
+ * @param {objeto} data          valores ingresados por el usuario
+ * @param {function} cbOK        función que da el ok
+ * @param {function} cbError     función para procesar en caso de errores
  */
 function addNewUserToDatabase(data, cbOK, cbError) {
+
+    //conecto a la base
     MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
         //error de conexión
         if (err) {
@@ -59,10 +61,10 @@ function addNewUserToDatabase(data, cbOK, cbError) {
 /**
  * función que consulta si usuario y contraseña ingresados corresponden a un usuario registrado
  * 
- * @param {string} user
- * @param {string} pass  
- * @param {function} cbOK 
- * @param {function} cbError 
+ * @param {string} user         usuario ingresado por el usuario
+ * @param {string} pass         contraseña ingresada por el usuario
+ * @param {function} cbOK       función para procesar el resultado OK de la validación
+ * @param {function} cbError    función para procesar errores
  */
 function validateUserAndPassAtDatabase(user, pass, cbOK, cbError) {
 
@@ -103,14 +105,16 @@ function validateUserAndPassAtDatabase(user, pass, cbOK, cbError) {
 
 
 /**
+ * función que agrega un post realizado a la base de datos
  * 
- * @param {object} data 
- * @param {func} cbOK 
- * @param {func} cbError 
+ * @param {object} data          valores ingresados para el post
+ * @param {func} cbOK            función que procesa el resultado OK del proceso
+ * @param {func} cbError         función que procesa errores
+ * 
  */
 
 function addNewPostToDatabase(data, cbOK, cbError) {
-
+    //conecto a base de datos
     MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
         //error de conexión
         if (err) {
@@ -125,20 +129,20 @@ function addNewPostToDatabase(data, cbOK, cbError) {
             //referencia a la colección
             const collection = db.collection('FeedPosts');
 
-            
-                //inserto nuevo usuario en el registro
-                collection.insertOne(data, (err, result) => {
 
-                    if (err) {
-                        //invoco error en caso 
-                        cbError(err);
-                        console.log('ruta error')
-                    } else {
-                        //invoco callback de exito si salió todo bien
-                        cbOK();
-                        console.log('ruta ok')
-                    }
-                });
+            //inserto nuevo usuario en el registro
+            collection.insertOne(data, (err, result) => {
+
+                if (err) {
+                    //invoco error en caso 
+                    cbError(err);
+                    console.log('ruta error')
+                } else {
+                    //invoco callback de exito si salió todo bien
+                    cbOK();
+                    console.log('ruta ok')
+                }
+            });
         }
     });
 };
@@ -147,34 +151,38 @@ function addNewPostToDatabase(data, cbOK, cbError) {
 /**
  * función para consultar los posts en la DB
  * 
- * @param {function} cbOK 
- * @param {function} cbError 
+ * @param {function} cbOK          función que procesa el resultado OK de la consulta
+ * @param {function} cbError       función que procesa errores
  */
 function getPost(cbOK, cbError) {
-
-
-
+    //conecto a la DB
     MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
-
+        //error de conexion
         if (err) {
 
             cbError("No se pudo conectar a la DB. " + err);
+
         } else {
-
+            //referencia a la DB
             const db = client.db(dbName);
-
+            //referencia a la colección
             const collection = db.collection("FeedPosts");
-
+            //obtengo todos los posts existentes
             collection.find().toArray((err, list) => {
+                //error de consulta
                 if (err) {
+
                     cbError("Error al consultar lista de posts. " + err);
+
                 } else {
+
                     list = list.reverse();
                     cbOK(list);
+
                 }
             });
         }
-
+        //cierro conexion
         client.close();
     });
 }
@@ -188,25 +196,25 @@ function getPost(cbOK, cbError) {
  * 
  * función que  busca en DB los posts que contengan alguna keyword ingresada en el buscador
  * 
- * @param {} data 
- * @param {*} cbOK 
- * @param {*} cbError 
+ * @param {string} data       palabra ingresada por el usuario
+ * @param {function} cbOK     función que procesa el resultado OK de la consulta 
+ * @param {function} cbError  función que procesa errores
  */
 function searchKeywordAtDatabase(data, cbOK, cbError) {
 
-
-
+    //conecto a la DB
     MongoClient.connect(mongoURL, { useNewUrlParser: true }, (err, client) => {
-
+        //error de conexion
         if (err) {
 
             cbError("No se pudo conectar a la DB. " + err);
+
         } else {
-
+            //referencia a la DB
             const db = client.db(dbName);
-
+            //referencia a la colección 
             const collection = db.collection("FeedPosts");
-
+            //consulta  la Db sobre los posts que contengan la palabra ingresada x usuario
             collection.find({
                 $or: [
 
@@ -222,15 +230,19 @@ function searchKeywordAtDatabase(data, cbOK, cbError) {
 
                 ]
             }).toArray((err, list) => {
+                //error de consulta
                 if (err) {
+
                     cbError("Error al consultar lista de posts. " + err);
+
                 } else {
+
                     list = list.reverse();
                     cbOK(list);
                 }
             });
         }
-
+        //cierre conexion
         client.close();
     });
 }

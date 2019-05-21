@@ -1,13 +1,11 @@
 module.exports.formatPostObject = formatPostObject;
 module.exports.formatUserObject = formatUserObject;
 
-let userCounter = 7;
-
 
 /**
  * función que formatea el req.body del nuevo usuario en un objeto que encaje con el formate de nuestra DB
  * 
- * @param {object} obj 
+ * @param {object} obj     objeto con los valores ingresados por el usuario
  */
 
 function formatUserObject(obj) {
@@ -15,7 +13,6 @@ function formatUserObject(obj) {
 
     let newObject =
     {
-        idUser: 0,
         creado: JSON.stringify(new Date()),
         user: obj.userHandler,
         password: obj.userPassword,
@@ -57,8 +54,8 @@ function formatUserObject(obj) {
 /**
  * función que formatea el nuevo objeto de post a nuestros requerimientos
  * 
- * @param {object} obj 
- * @param {object} obj2
+ * @param {object} obj        objeto con los valores ingresados por el usuario
+ * @param {object} obj2       objeto referencia a la session
  * 
  * 
  */

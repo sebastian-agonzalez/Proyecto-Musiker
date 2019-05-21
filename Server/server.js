@@ -95,12 +95,14 @@ app.get('/logout', (req, res) => {
 //GET para entrega del home
 app.get('/home', (req, res) => {
 
-    console.log(req.session.userId);
 
+    console.log(req.session.userId);
+    //chequeo que el usuario esté loggeado
     if (req.session.userId !== undefined) {
 
+        //llamo a la función de consulta a la database
         dbFunc.getPost(
-
+            //envío lista de posts del feed común cuando entra al home
             postsList => {
                 res.render('home', {
                     username: req.session.userId,
@@ -108,7 +110,7 @@ app.get('/home', (req, res) => {
                 });
 
             },
-
+            //mensaje de error
             errorMessage => {
 
                 res.render('error', {
@@ -117,12 +119,6 @@ app.get('/home', (req, res) => {
 
             }
         );
-
-        /*
-         res.render('home', {
-         username: req.session.userId,
-         });
-         */
 
     } else {
 
@@ -142,6 +138,7 @@ app.post('/dosignup', (req, res) => {
     // chequeo qué se obtuvo
     currentDate = new Date();
     console.log('test 1: ', req.body); console.log('test 2: ', currentDate);
+
     //chequeo si hay alguna propiedad que sea indefinida o un string vacío
     // var. auxiliar para guardar propiedades del objeto
     let auxCheck = Object.values(req.body);
@@ -173,7 +170,7 @@ app.post('/dosignup', (req, res) => {
 
         //agrego el objeto de usuario a la DB
         dbFunc.addNewUserToDatabase(newObjectUser,
-            //si está todo ok redireccionar a loguearse
+            //
             () => {
 
                 res.send('/login');
@@ -181,7 +178,7 @@ app.post('/dosignup', (req, res) => {
 
 
             },
-            //mje de error
+            //mensaje de error
             (errmsg) => {
 
                 console.log(errmsg);
@@ -191,8 +188,8 @@ app.post('/dosignup', (req, res) => {
 
     } else {
         res.send('/error')
-        //res.sendStatus(403);
-        
+
+
     };
 });
 
@@ -201,12 +198,16 @@ app.post('/dosignup', (req, res) => {
 
 //POST validar login
 app.post('/validateLogin', (req, res) => {
-    //chequeo qué se obtuvo
+
     console.log(req.body);
+
+    //chequeo que usuario y contraseña existan
     if (req.body.user !== undefined && req.body.pass !== undefined) {
 
+        //función que busca coincidencia de user y pass en database con cuentas existentes
         dbFunc.validateUserAndPassAtDatabase(req.body.user, req.body.pass,
 
+            //redirijo al home si validó
             () => {
 
                 req.session.userId = req.body.user;
@@ -214,6 +215,8 @@ app.post('/validateLogin', (req, res) => {
                 console.log('login OK');
 
             },
+
+            //redirijo nuevamente al login si no hubo coincidencia
             () => {
 
                 req.session.destroy();
@@ -240,6 +243,7 @@ app.post('/newPost', (req, res) => {
     currentDate = new Date();
     console.log('test 2: ', currentDate);
 
+    //chequeo que el usuario esté logeado
     if (req.session.userId !== undefined) {
 
         //chequeo si hay alguna propiedad que sea indefinida o un string vacío
@@ -298,8 +302,8 @@ app.post('/newPost', (req, res) => {
 
 //GET Search - búsqueda de publicaciones
 app.get('/search', (req, res) => {
-    console.log('pasó por la api');
-    console.log(req.query);
+
+
     console.log(req.query.keywords);
 
 
@@ -308,16 +312,19 @@ app.get('/search', (req, res) => {
     //let keywordsArr = keywordsString.split(/(\s+)/).filter(e => e.trim().length > 0);
     console.log(keywordsString);
 
+
+    //chequeo que el usuario esté logeado
     if (req.session.userId !== undefined) {
-
+        //invoco fnción que realiza la búsqueda en la database
         dbFunc.searchKeywordAtDatabase(keywordsString,
-
+            //envío página con los resultados
             resultsList => {
                 res.render('searchresults', {
                     username: req.session.userId,
                     posts: resultsList
                 })
             },
+            //mje de error
             errorMessage => {
 
                 res.render('error', {
