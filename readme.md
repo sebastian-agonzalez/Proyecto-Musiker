@@ -28,7 +28,7 @@ En base a esa premisa Musiker. permite registro de usuario, login, ver un feed c
 
 ## Especificidades técnicas
 
-* Para la parte del server se ha utilizado la librería Express, inclutyendo ExpressSession para manejo de sesión, y expressHbs para manejo de habldebars; 
+* Para la parte del server se ha utilizado la librería Express, incluyendo ExpressSession para manejo de sesión, y expressHbs para manejo de handlebars; 
 * Tanto el login como el registro funcionan con requests AJAX (POST) y entrega de HTMLs correspondientes. Para el front-end se usó CSS y BOOTSTRAP. Los datos son enviados a, asentados y/o validados en una base de datos de MongoDB 
 * El Home funciona con requests GET desde el navegador y render de Handlebars. Front-end con Matarialize y CSS. También conecta a dicha Base de datos.
 * La función de Búsqueda funciona con query-strings y requests GET a la base de datos. También render con Handlebars.
